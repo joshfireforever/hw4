@@ -1,10 +1,10 @@
-const fakeData = require("faker");
 const express = require("express");
 const app = express();
 app.engine('html', require('ejs').renderFile);
 app.use(express.static("public"));
 
-var randomName = fakeData.name.jobTitle();
+const fakeData = require("faker");
+var randomName = fakeData.name.findName();
 
 //routes
 app.get("/", function(req, res) {
@@ -27,3 +27,4 @@ app.get("/experience", function(req, res) {
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("Express server is running...");
 });
+
